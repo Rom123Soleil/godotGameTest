@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://vko3w54c6go3"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_lumdm"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="MenuButton" type="MenuButton" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+icon = SubResource("MeshTexture_lumdm")

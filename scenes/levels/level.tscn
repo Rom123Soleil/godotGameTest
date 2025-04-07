@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0wt3g5vfhsap"]
+
+[ext_resource type="Material" uid="uid://mmejjpxcad27" path="res://assets/textures/platform texture.tres" id="1_k3rtj"]
+[ext_resource type="Material" uid="uid://cdhiy1mum8l61" path="res://assets/textures/new_standard_material_3d.tres" id="1_uhqny"]
+
+[node name="Level" type="Node3D"]
+transform = Transform3D(1, 0.000253256, -0.000155371, -0.000253226, 1, 0.000243236, 0.00015542, -0.000243204, 1, 0, 0, 0)
+
+[node name="Floor" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(5, 1, 5)
+material = ExtResource("1_k3rtj")
+
+[node name="Floor4" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(5, 1, 5)
+material = ExtResource("1_k3rtj")
+
+[node name="Floor2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 4.09628e-12, -1.45519e-11, -2.0961e-11, 1, 0, 0, 0, 1, -0.00466297, 0.0072959, -10)
+material_override = ExtResource("1_k3rtj")
+use_collision = true
+size = Vector3(5, 1, 5)
+material = ExtResource("1_uhqny")
+
+[node name="Floor3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 4.09628e-12, -1.45519e-11, -2.0961e-11, 1, 0, 0, 0, 1, -0.0203767, 0.0252574, -19.9943)
+material_override = ExtResource("1_k3rtj")
+use_collision = true
+size = Vector3(5, 1, 5)
+material = ExtResource("1_uhqny")
