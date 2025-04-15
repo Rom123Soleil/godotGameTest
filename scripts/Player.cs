@@ -3,12 +3,16 @@ using Godot;
 public partial class Player : CharacterBody3D
 {
 
-	[Export] private float playerSpeed = 5.0f;
+	[Export] private float playerSpeed = 20.0f;
 	[Export] private float jump = 10.0f;
 	[Export] private float gravity = 10.0f;
 
+	[Export] private float climbingSpeed = 5.0f;
+
 	private Camera3D camera;
 	private Node3D anchorCamera;
+
+	private bool isClimbing;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -17,12 +21,13 @@ public partial class Player : CharacterBody3D
 		camera = anchorCamera.GetNode<Camera3D>("Camera3D");
 
 		Input.MouseMode = Input.MouseModeEnum.Captured;
+		isClimbing = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
+
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -32,12 +37,10 @@ public partial class Player : CharacterBody3D
 
 		if (position.Y <= -10)
 		{
-			position.X = 0;
-			position.Y = 2;
-			position.Z = 0;
+			position = PutBackToMainFloor();
 		}
 
-		if (!IsOnFloor())
+		if (!IsOnFloor() && !isClimbing)
 		{
 			velocity.Y -= (float)(gravity * delta);
 		}
@@ -45,6 +48,17 @@ public partial class Player : CharacterBody3D
 		if (IsOnFloor() && Input.IsActionPressed("jump"))
 		{
 			velocity.Y = jump;
+		}
+
+		if (isClimbing)
+		{
+
+			if (velocity.Y <= 0)
+			{
+				velocity.Y = 0;
+			}
+
+			velocity.Y += (float)(climbingSpeed * delta);
 		}
 
 
@@ -61,6 +75,15 @@ public partial class Player : CharacterBody3D
 		Position = position;
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	private static Vector3 PutBackToMainFloor()
+	{
+		Vector3 position;
+		position.X = 0;
+		position.Y = 2;
+		position.Z = 0;
+		return position;
 	}
 
 	public override void _Input(InputEvent @event)
@@ -84,6 +107,16 @@ public partial class Player : CharacterBody3D
 			}
 		}
 
+	}
+
+	public void Climb()
+	{
+		isClimbing = true;
+	}
+
+	public void StopClimbing()
+	{
+		isClimbing = false;
 	}
 
 }

@@ -1,31 +1,91 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0wt3g5vfhsap"]
+[gd_scene load_steps=5 format=3 uid="uid://b0wt3g5vfhsap"]
 
 [ext_resource type="Material" uid="uid://mmejjpxcad27" path="res://assets/textures/platform texture.tres" id="1_k3rtj"]
 [ext_resource type="Material" uid="uid://cdhiy1mum8l61" path="res://assets/textures/new_standard_material_3d.tres" id="1_uhqny"]
+[ext_resource type="PackedScene" uid="uid://bahj7rsctsvmu" path="res://scenes/Ladder.tscn" id="3_b2cq8"]
+[ext_resource type="PackedScene" uid="uid://bf6kr2fhl8256" path="res://scenes/Enemy.tscn" id="4_xb4v1"]
 
 [node name="Level" type="Node3D"]
 transform = Transform3D(1, 0.000253256, -0.000155371, -0.000253226, 1, 0.000243236, 0.00015542, -0.000243204, 1, 0, 0, 0)
 
-[node name="Floor" type="CSGBox3D" parent="."]
+[node name="Floors" type="Node" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="Floors"]
+transform = Transform3D(2.17219, 0.00027013, -0.000312132, -0.000550056, 1.06663, 0.000488649, 0.000337602, -0.000259408, 2.00895, -0.0152168, 0, -0.103361)
 use_collision = true
 size = Vector3(5, 1, 5)
 material = ExtResource("1_k3rtj")
 
-[node name="Floor4" type="CSGBox3D" parent="."]
-use_collision = true
-size = Vector3(5, 1, 5)
-material = ExtResource("1_k3rtj")
-
-[node name="Floor2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 4.09628e-12, -1.45519e-11, -2.0961e-11, 1, 0, 0, 0, 1, -0.00466297, 0.0072959, -10)
+[node name="Floor2" type="CSGBox3D" parent="Floors"]
+transform = Transform3D(2.17219, 0.00027013, -0.000312132, -0.000550056, 1.06663, 0.000488649, 0.000337602, -0.000259408, 2.00895, 0.353481, 0, -20.7128)
 material_override = ExtResource("1_k3rtj")
 use_collision = true
 size = Vector3(5, 1, 5)
 material = ExtResource("1_uhqny")
 
-[node name="Floor3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 4.09628e-12, -1.45519e-11, -2.0961e-11, 1, 0, 0, 0, 1, -0.0203767, 0.0252574, -19.9943)
+[node name="Floor3" type="CSGBox3D" parent="Floors"]
+transform = Transform3D(2.17219, 0.00027013, -0.000312132, -0.000550056, 1.06663, 0.000488649, 0.000337602, -0.000259408, 2.00895, -0.0527153, 0, -40.2768)
 material_override = ExtResource("1_k3rtj")
 use_collision = true
 size = Vector3(5, 1, 5)
 material = ExtResource("1_uhqny")
+
+[node name="Floor5" type="CSGBox3D" parent="Floors"]
+transform = Transform3D(2.17196, 0.000365995, -0.000294632, -0.000634286, 1.35002, -0.676704, 0.000118921, 0.515716, 1.77146, -0.0516319, 5.8918, -66.6412)
+material_override = ExtResource("1_k3rtj")
+use_collision = true
+size = Vector3(5, 1, 11.4023)
+material = ExtResource("1_uhqny")
+
+[node name="Floor6" type="CSGBox3D" parent="Floors"]
+transform = Transform3D(2.17603, 0.00655776, -0.00352907, -0.0132207, 1.0817, -0.0152999, 0.00373277, 0.00827425, 2.00308, 25.5827, 11.6765, -80.5379)
+material_override = ExtResource("1_k3rtj")
+use_collision = true
+size = Vector3(5, 1, 5)
+material = ExtResource("1_uhqny")
+
+[node name="Floor7" type="CSGBox3D" parent="Floors"]
+transform = Transform3D(2.17603, 0.0065527, -0.00475268, -0.0132207, 1.0817, -0.0152999, 0.00506204, 0.00827826, 2.00308, 50.2494, 11.5732, -80.3826)
+material_override = ExtResource("1_k3rtj")
+use_collision = true
+size = Vector3(5, 1, 5)
+material = ExtResource("1_uhqny")
+
+[node name="Floor8" type="CSGBox3D" parent="Floors"]
+transform = Transform3D(2.17603, 0.0065527, -0.00475268, -0.0132207, 1.0817, -0.0152999, 0.00506204, 0.00827826, 2.00308, 71.7941, 20.1292, -80.3826)
+material_override = ExtResource("1_k3rtj")
+use_collision = true
+size = Vector3(5, 1, 5)
+material = ExtResource("1_uhqny")
+
+[node name="Floor9" type="CSGBox3D" parent="Floors"]
+transform = Transform3D(2.17603, 0.00655269, -0.00475268, -0.0132207, 1.0817, -0.0152999, 0.00506204, 0.00827827, 2.00308, 95.9818, 21.096, -66.5457)
+material_override = ExtResource("1_k3rtj")
+use_collision = true
+size = Vector3(5, 1, 5)
+material = ExtResource("1_uhqny")
+
+[node name="Floor10" type="CSGBox3D" parent="Floors"]
+transform = Transform3D(2.17603, 0.00655269, -0.00475268, -0.0132207, 1.0817, -0.0152999, 0.00506204, 0.00827827, 2.00308, 95.1893, 19.7908, -41.533)
+material_override = ExtResource("1_k3rtj")
+use_collision = true
+size = Vector3(5, 1, 5)
+material = ExtResource("1_uhqny")
+
+[node name="Ladder3" parent="." instance=ExtResource("3_b2cq8")]
+transform = Transform3D(0.99975, -6.90365e-09, 1.86265e-09, 6.87077e-10, 5.07305, -1.74623e-10, 1.01863e-10, -4.65661e-09, 3.81581, 65.7296, 18.0651, -79.8859)
+
+[node name="Enemy" parent="." instance=ExtResource("4_xb4v1")]
+transform = Transform3D(1, -0.000253218, 0.000155433, 0.000253264, 1, -0.000243197, -0.000155358, 0.000243243, 1, 3.51, -6, -10.001)
+EnemySpeed = 10.0
+MovementDirection = Vector3(0, 12, 0)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_xb4v1")]
+transform = Transform3D(0.999999, -0.000253218, 0.000155433, 0.000253264, 1, -0.000243197, -0.000155358, 0.000243243, 1, -4.005, -6, -10)
+EnemySpeed = 10.0
+MovementDirection = Vector3(0, 12, 0)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_xb4v1")]
+transform = Transform3D(0.999999, -0.000253218, 0.000155433, 0.000253264, 1, -0.000243197, -0.000155358, 0.000243243, 1, 0.105, 6, -10.001)
+EnemySpeed = 10.0
+MovementDirection = Vector3(0, -12, 0)

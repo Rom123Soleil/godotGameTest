@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf6kr2fhl8256"]
+
+[ext_resource type="Script" uid="uid://d3njunkys72ng" path="res://scripts/Enemy.cs" id="1_3gvst"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2qkhh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3gvst"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55jtl"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Enemy" type="Area3D"]
+script = ExtResource("1_3gvst")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2qkhh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3gvst")
+surface_material_override/0 = SubResource("StandardMaterial3D_55jtl")
